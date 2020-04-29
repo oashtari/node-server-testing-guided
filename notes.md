@@ -52,3 +52,5 @@ for disconnecting local repo to a new origin, don't need this as we're already f
 
 1. in knexfile.js, copy the 'development' settings, call it production
 2. the dbConfig file shows that we're using development, when deploying to heroku, need to point to production
+3. create new application on heroku, connect to github repo
+4. 
