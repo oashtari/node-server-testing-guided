@@ -53,4 +53,17 @@ for disconnecting local repo to a new origin, don't need this as we're already f
 1. in knexfile.js, copy the 'development' settings, call it production
 2. the dbConfig file shows that we're using development, when deploying to heroku, need to point to production
 3. create new application on heroku, connect to github repo
-4. 
+4. inside Heroku, go to resource tab
+- in add-ons look for postgres, pick free version
+5. go to settings tab, hit reveal config variables, see the url, copy "DATABASE_URL"
+6. inside knexfile change production client to 'pg'
+7. yarn add pg
+8. delete useNullAsDefault from production
+9. change connection from an object to     connection: process.env.DATABASE_URL,
+10. in settings, config vars, add DB_ENV : production (should match what is in dbConfig file), this should make the api avail in the browser
+11. run knex migrate:latest
+12. run knex seed:run (not common to do this in production)
+
+
+
+
