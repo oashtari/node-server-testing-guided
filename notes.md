@@ -66,5 +66,8 @@ for disconnecting local repo to a new origin, don't need this as we're already f
 
 
 
+also don't forget to migrate the test db `npx knex migrate:latest --env=testing'
 
 supertest is part of superagent
+
+
