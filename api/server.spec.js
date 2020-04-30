@@ -3,6 +3,10 @@ const request = require('supertest');
 const server = require('./server')
 
 describe('server.js', function () {
+
+    it('should set test env', () => {
+        expect(process.env.DB_ENV).toBe('testing')
+    })
     describe('GET /', function () {
 
         it('should return 200 ok', function () {
@@ -33,6 +37,11 @@ describe('server.js', function () {
                     expect(response.body.api).toBe("up")
 
                 })
+        })
+
+        it('should return {api: "up', async () => {
+            const res = await request(server).get('/');
+            expect(res.body).toEqual({ api: "up" })
         })
     })
 })
